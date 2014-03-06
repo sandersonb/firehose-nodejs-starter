@@ -1,3 +1,11 @@
+/**
+ * Starter NodeJS Firehose Consumer. Emits browser data over
+ * websockets.
+ *
+ * TODO: Make sure to edit the config.js file first!
+ *
+ * @author Brian Sanderson (bsanders@adobe.com)
+ */
 
 var http = require("http"),
 	util = require("util"),
@@ -12,7 +20,7 @@ var environ = "prod",
 	stream = null,
 	app = http.createServer(function() {}),
 	io = socketio.listen(app),
-	browsers = {};
+	browsers = {}; // object that will collect results from firehose
 
 io.set('log level', 1);
 

@@ -1,3 +1,11 @@
+/**
+ * Firehose Authentication
+ *
+ * Communicates with the Adobe API token servers and caches
+ * tokens locally.
+ *
+ * @author Brian Sanderson (bsanders@adobe.com)
+ */
 
 var https = require("https"),
 	querystring = require("querystring"),

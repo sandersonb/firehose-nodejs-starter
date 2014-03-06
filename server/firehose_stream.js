@@ -1,3 +1,11 @@
+/**
+ * Firehose Stream.
+ *
+ * Reads the firehose stream and emits data over a callback.
+ * Handles reconnect and reauthentication.
+ *
+ * @author (bsanders@adobe.com)
+ */
 
 var https = require('https'),
 	es = require('event-stream'),

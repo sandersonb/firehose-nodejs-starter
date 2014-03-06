@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Firehose WebSocket Example</title>
+		<script language="JavaScript" src="jquery-1.11.0.min.js"></script>
+		<script language="JavaScript" src="socket.io.js"></script>
+		<script language="javaScript">
+			var socket = io.connect('http://localhost:9871');
+			socket.on('data', function (data) {
+				var html = '';
+				$.each(data, function(browser) {
+					html += "<tr><td>" + browser + "</td><td>" + data[browser] + "</td></tr>";
+				});
+				$('#drop').html(html);
+			});
+		</script>
+	</head>
+	<body>
+		<table>
+			<thead>
+				<tr>
+					<th>Browser</th>
+					<th>Count</th>
+				</tr>
+			<thead>
+			<tbody id="drop">
+			</tbody>
+		</table>
+	</body>
+</html>

@@ -1,10 +1,11 @@
-firehose-nodejs-starter
+Adobe Firehose NodeJS Starter
 =======================
 
 The Adobe Firehose and NodeJS are natural friends due to the tools available in NodeJS to perform stream processing. 
-This starter project illustrates how to consume data from the Adobe Firehose. Specifically it:
+This starter project illustrates how to consume data from the Adobe Firehose. Specifically, the starter:
 
-- Requests a token as needed from the token server. Will re-request tokens as they expire.
+- Requests a token as needed from the token server. 
+- Will re-request tokens as they expire.
 - Caches tokens on the filesystem, so tokens can be reutilized.
 - Connects (and reconnects) to the firehose streaming server as needed.
 - Provides a callback (onDataReceived) that is executed everytime an object is received from the firehose.
@@ -55,6 +56,6 @@ this probably means the stream is not configured for your user on the Adobe side
 ### Setup client
 
 Copy the contents of the `client` directory inside the webroot of a running webserver. This can be Apache, nginx, or 
-any other webserver. The only requirements are that your browser is able to create an http connection and negotiate a websocket with the running node server. Load `index.html` in your browser.
+any other webserver. The only requirements are that your browser is able to create an http connection and negotiate a websocket with the running node server. Once the code is there, load `index.html` in your browser.
 
 You should see a very basic table of data containing a count of browser types that have visited your site. If you see no errors but aren't getting data, add some more logging (`console.log`) to `server.js`.

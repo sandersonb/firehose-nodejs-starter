@@ -107,7 +107,12 @@ FirehoseStream.prototype.die = function() {
  * @return (object)
  */
 FirehoseStream.prototype.buildRequestOptions = function() {
-	var options = url.parse(this.config.streamUrl);
+	var firehoseUrl = this.config.streamUrl;
+	if (this.config.maxConnections) {
+		firehoseUrl += "?maxConnections=" + this.config.maxConnections 
+	}
+	console.log("Requesting url: " + firehoseUrl);
+	var options = url.parse(firehoseUrl)
 	options.headers = {
 		'Authorization': 'Bearer ' + this.auth.token,
 	    'Accept-Encoding': 'gzip'

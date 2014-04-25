@@ -23,6 +23,7 @@ config.test.tokenApiHost =       "api.omniture.com"
 config.test.trustAllSSLCerts =   true
 config.test.streamUrl =          "https://firehose1.omniture.com/api/0/stream/my-test-stream"
 config.test.tokenCacheFile =     "firehose-test.token"
+config.test.maxConnections =     1
 
 // "prod" environment configuration. Prod is the default environment.
 // If you only have one environment, just fill this out.

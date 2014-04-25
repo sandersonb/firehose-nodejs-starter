@@ -111,7 +111,8 @@ FirehoseAuth.prototype.requestToken = function(callback) {
 		authpost = querystring.stringify({
 			'grant_type': 'password',
 			'username': this.config.username,
-			'password': this.config.password
+			'password': this.config.password,
+			'scope': 'Firehose'
 		}),
 		req = null,
 		auth = this;

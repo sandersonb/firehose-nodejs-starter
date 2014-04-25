@@ -73,6 +73,7 @@ FirehoseStream.prototype.startStreaming = function() {
 		stream = this;
 	this.request = https.request(options, function(response) {
 		if (response.statusCode == 200) { // OK
+			console.log("Successfully connected to stream. Receiving data.")
 			response.pipe(zlib.createGunzip())
 			.pipe(es.split())
 			.pipe(es.parse())
@@ -111,7 +112,6 @@ FirehoseStream.prototype.buildRequestOptions = function() {
 	if (this.config.maxConnections) {
 		firehoseUrl += "?maxConnections=" + this.config.maxConnections 
 	}
-	console.log("Requesting url: " + firehoseUrl);
 	var options = url.parse(firehoseUrl)
 	options.headers = {
 		'Authorization': 'Bearer ' + this.auth.token,

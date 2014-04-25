@@ -36,5 +36,6 @@ config.prod.tokenApiHost =       "api.omniture.com"
 config.prod.trustAllSSLCerts =   true
 config.prod.streamUrl =          "https://firehose1.omniture.com/api/0/stream/my-prod-stream"
 config.prod.tokenCacheFile =     "firehose-prod.token"
+config.prod.maxConnections =     1
 
 module.exports = config

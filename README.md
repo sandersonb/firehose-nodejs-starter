@@ -1,22 +1,22 @@
-Adobe Firehose NodeJS Starter
+Adobe LiveStream NodeJS Starter
 =======================
 
-The Adobe Firehose and NodeJS are natural friends due to the tools available in NodeJS to perform stream processing. 
-This starter project illustrates how to consume data from the Adobe Firehose. Specifically, the starter:
+Adobe LiveStream and NodeJS are natural friends due to the tools available in NodeJS to perform stream processing. 
+This starter project illustrates how to consume data from the Adobe LiveStream. Specifically, the starter:
 
 - Requests a token as needed from the token server. 
 - Will re-request tokens as they expire.
 - Caches tokens on the filesystem, so tokens can be reutilized.
-- Connects (and reconnects) to the firehose streaming server as needed.
-- Provides a callback (onDataReceived) that is executed everytime an object is received from the firehose.
+- Connects (and reconnects) to LiveStream servers as needed.
+- Provides a callback (onDataReceived) that is executed everytime an object is received from LiveStream.
 
 ### Prerequisites
 
 - Have experience using the terminal on your platform.
-- Obtain access to the Firehose
+- Obtain access to LiveStream
   - Have ready your Adobe ID
   - Generate a clientId and clientSecret
-  - Obtain your Firehose endpoint URL. 
+  - Obtain your LiveStream endpoint URL. 
 - NodeJS >= 0.10. Also requires packages:
   - event-stream
   - socket.io
@@ -46,11 +46,11 @@ Now you can run the server:
 node server.js env=prod
 ```
 
-It should negotiate a token with the Token API service, and begin consuming from the firehose. 
+It should negotiate a token with the Token API service, and begin consuming from LiveStream. 
 If an error occurs, determine if the error had to do with requesting the token, or if it had
-to do with connecting to the firehose string. If the error deals with the token, double check your
-credentials in `config.js`. If the problem is with connecting to the firehose stream server,
-double check the streamUrl in `config.js`. If you get unauthorized problems at the firehose stream,
+to do with connecting to LiveStream string. If the error deals with the token, double check your
+credentials in `config.js`. If the problem is with connecting to LiveStream stream server,
+double check the streamUrl in `config.js`. If you get unauthorized problems at LiveStream stream,
 this probably means the stream is not configured for your user on the Adobe side, and you will need to reach out.
 
 ### Setup client

@@ -112,7 +112,7 @@ FirehoseAuth.prototype.requestToken = function(callback) {
 			'grant_type': 'password',
 			'username': this.config.username,
 			'password': this.config.password,
-			'scope': 'Firehose'
+			'scope' : 'LiveStream'
 		}),
 		req = null,
 		auth = this;

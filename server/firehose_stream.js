@@ -83,6 +83,12 @@ FirehoseStream.prototype.startStreaming = function() {
 		} else if (response.statusCode == 401) { // unauthorized
 			stream.auth.invalidateToken()
 			stream.dataCB(null, 'Got stream unauthorized, will try to authenticate.');
+		} else if ((response.statusCode == 301 ||
+			    response.statusCode == 302) &&
+			    response.headers.location) { // redirect
+			console.log('Redirecting to: ' + response.headers.location)
+			stream.config.streamUrl = response.headers.location
+			stream.config.maxConnections = null
 		} else {
 			stream.die();
 			stream.dataCB(null, 'Got an unexpected HTTP status ' + response.statusCode + ', aborting.');
